@@ -1,20 +1,20 @@
 package bonch.dev.school
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
 
 class SecondActivity : AppCompatActivity() {
-    private lateinit var textView: TextView
-
+    private lateinit var textView:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val ss:String = intent.getStringExtra("intentText")
         setContentView(R.layout.activity_second)
-        textView=findViewById(R.id.textView)
-        textView.text=ss
+        textView = findViewById(R.id.text_view)
+        var getBool = intent.getBooleanExtra("enabling",false)
+        var getCount = intent.getIntExtra("count",0)
+        var getText =  intent.getStringExtra("text")
+        textView.text="Кнопка нажата:\n$getBool\nКоличество нажатий:\n$getCount\nтекст:\n$getText"
 
     }
-
 }
